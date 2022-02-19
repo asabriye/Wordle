@@ -15,3 +15,14 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+.tile-container {
+  width: 330px;
+  margin-bottom: 30px;
+}
+
+.keyboard-container {
+  width: 510px;
+  display: flex;
+  flex-wrap: wrap;
+}
