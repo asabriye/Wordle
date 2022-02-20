@@ -66,16 +66,39 @@ keys.forEach(key => {
   keyboard.append(buttonElement)
 })
 
-const handleClick = (key) => {
-  console.log('clicked', key)
-  addLetter(key)
+const handleClick = (letter) => {
+  console.log('clicked', letter)
+  if (letter === '<<') {
+    deleteLetter()
+    console.log('guessRows', guessRows)
+    return
+  }
+  if (letter === 'ENTER') {
+    console.log('check row')
+    console.log('guessRows', guessRows)
+    return
+  }
+  addLetter(letter)
+  console.log('guessRows', guessRows)
 }
 
 const addLetter = (letter) => {
-  const tile = document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
-  tile.textContent = letter
-  guessRows[currentRow][currentTile] = letter
-  tile.setAttribute('data', letter)
-  currentTile++
-  console.log('guessRows', guessRows)
+  if (currentTile < 5 && currentRow < 6) {
+    const tile = document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
+    tile.textContent = letter
+    guessRows[currentRow][currentTile] = letter
+    tile.setAttribute('data', letter)
+    currentTile++
+    console.log('guessRows', guessRows)
+  }
+}
+
+const deleteLetter = () => {
+  if (currentTile > 0) {
+    currentTile--
+    const tile = document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
+    tile.textContent = ''
+    guessRows[currentRow][currentTile] = ''
+    tile.setAttribute('data', '')
+  }
 }
