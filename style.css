@@ -1,7 +1,10 @@
 body {
-  background-color: olive;
+  background-color: rgb(36, 36, 32);
 }
 
+* {
+  color: white;
+}
 .title-container {
   text-align: center;
   width: 510px;
@@ -55,4 +58,8 @@ body {
   justify-content: center;
   align-items: center;
   margin: 2px;
+}
+
+.message-container {
+  height: 30px;
 }
